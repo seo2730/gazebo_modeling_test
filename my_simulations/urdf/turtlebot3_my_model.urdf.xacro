@@ -14,7 +14,7 @@
     <!-- Deliver robot Base -->
     <link name="base_link">
         <visual>
-            <!-- sdf 파일 참고해서 위치 설정 z축은 무시-->
+            <!-- refer sdf ignore z-->
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
                 <box size="0.265 0.265 0.1"/>
@@ -23,10 +23,10 @@
         </visual>
 
         <collision>
-        <!-- sdf 파일 참고해서 위치 설정-->
+        <!-- refer sdf ignore z-->
         <origin xyz="0 0 0.06" rpy="0 0 0"/>
         <geometry>
-            <!-- sdf 파일 참고해서 크기 설정-->
+            <!-- refer sdf ignore z-->
             <box size="0.265 0.265 0.1"/>
         </geometry>
         </collision>
@@ -41,7 +41,7 @@
     </link>
 
     <!-- Deliver robot Left Wheel-->
-    <!-- sdf 파일 참고해서 위치 설정-->
+    <!-- refer sdf ignore z-->
     <joint name="wheel_left_joint" type="continuous">
         <parent link="base_link"/>
         <child link="wheel_left_link"/>
