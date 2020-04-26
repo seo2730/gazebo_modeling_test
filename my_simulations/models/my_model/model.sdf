@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <sdf version="1.5">
-    <model name="my_model">
+    <model name="turtlebot3_my_model">
         <!-- Each model link name -->
         <link name="base">
             <!--choose center of mass, inertia, mass -->
@@ -134,7 +134,7 @@
         <!-- Deliver robot left wheel -->
         <link name="left_wheel">
             <inertial>
-                <pose>0.0 0.144 0.023 -1.57 0 0</pose>
+                <pose>0.07 0.11 0.033 -1.57 0 0</pose>
                 <inertia>
                 <ixx>0.001</ixx>
                 <ixy>0.000</ixy>
@@ -147,7 +147,7 @@
             </inertial>
 
             <collision name="left_wheel_collision">
-                <pose>0.0 0.144 0.023 -1.57 0 0</pose>
+                <pose>0.07 0.11 0.033 -1.57 0 0</pose>
                 <geometry>
                     <cylinder>
                         <radius>0.033</radius>
@@ -168,7 +168,7 @@
             </collision>
 
             <visual name="left_wheel_visual">
-                <pose>0.0 0.144 0.023 0 0 0</pose>
+                <pose>0.07 0.11 0.033 -1.57 0 0</pose>
                 <geometry>
                     <cylinder>
                         <radius>0.033</radius>
@@ -178,10 +178,10 @@
             </visual>
         </link>
 
-        <!-- Deliver robot left wheel -->
+        <!-- Deliver robot right wheel -->
         <link name="right_wheel">
             <inertial>
-                <pose>0.0 -0.144 0.023 -1.57 0 0</pose>
+                <pose>0.07 -0.11 0.033 -1.57 0 0</pose>
                 <inertia>
                     <ixx>0.001</ixx>
                     <ixy>0.000</ixy>
@@ -194,7 +194,7 @@
             </inertial>
             
             <collision name="right_wheel_collision">
-                <pose>0.0 -0.144 0.023 -1.57 0 0</pose>
+                <pose>0.07 -0.11 0.033 -1.57 0 0</pose>
                 <geometry>
                     <cylinder>
                         <radius>0.033</radius>
@@ -215,7 +215,7 @@
             </collision>
 
             <visual name="right_wheel_visual">
-                <pose>0.0 -0.144 0.023 0 0 0</pose>
+                <pose>0.07 -0.11 0.033 -1.57 0 0</pose>
                 <geometry>
                      <cylinder>
                         <radius>0.033</radius>
@@ -229,7 +229,7 @@
         <joint name="left_wheel_joint" type="revolute">
             <parent>base</parent>
             <child>left_wheel</child>
-            <pose>0.0 0.144 0.023 -1.57 0 0</pose>
+            <pose>0.07 0.11 0.033 0 -1.57 0</pose>
             <axis>
                 <xyz>0 1 0</xyz>
             </axis>
@@ -238,7 +238,7 @@
         <joint name="right_wheel_joint" type="revolute">
             <parent>base</parent>
             <child>right_wheel</child>
-            <pose>0.0 -0.144 0.023 -1.57 0 0</pose>
+            <pose>0.07 -0.11 0.033 0 -1.57 0</pose>
             <axis>
                 <xyz>0 1 0</xyz>
             </axis>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find my_simulations)/urdf/turtlebot3_my_model.urdf.xacro" />
+    
+    <arg name="x" default="0"/>
+    <arg name="y" default="0"/>
+    <arg name="z" default="0"/>
+
+    <!-- overwriting these args-->
+    <arg name = "debug" default="false" />
+    <arg name = "gui" default="false" />
+    <arg name = "pause" default="true" />
+    <arg name = "world" default="$(find my_simulations)/worlds/empty_world.world" />
+
+    <!-- include gazebo_ros launcher -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(arg world)"/>
+        <arg name="debug" value="$(arg debug)"/>
+        <arg name="gui" value="true"/>
+        <arg name="paused" value="$(arg pause)"/>
+        <arg name="use_sim_time" value="true"/>
+    </include>
+
+    <!--노드 이름, 쓰는 패키지, 타입, 모델이름 위치 파라미터-->
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" 
+          args="-urdf -model turtlebot3_my_model -x $(arg x) -y $(arg y) -z $(arg z) -param robot_description" />
+
+</launch>
