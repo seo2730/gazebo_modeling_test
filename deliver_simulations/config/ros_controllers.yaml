@@ -1,0 +1,20 @@
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+
+  arm_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - joint1_left_joint
+      - joint2_left_joint
+      - joint1_right_joint
+      - joint2_right_joint
+
+    gains:
+      joint1_left_joint: {p: 100,  d: 10}
+      joint2_left_joint: {p: 100,  d: 10}
+      joint1_right_joint: {p: 100,  d: 10}
+      joint2_right_joint: {p: 100,  d: 10}
+      
+  
+
