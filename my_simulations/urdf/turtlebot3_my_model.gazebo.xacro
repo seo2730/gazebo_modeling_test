@@ -39,6 +39,94 @@
         <material>Gazebo/FlatBlack</material>
     </gazebo>
 
+    <gazebo reference="joint1_left_link">
+        <mu1>0.1</mu1>
+        <mu2>0.1</mu2>
+        <kp>500000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+        <material>Gazebo/FlatBlack</material>
+    </gazebo>
+
+    <gazebo reference="joint1_right_link">
+        <mu1>0.1</mu1>
+        <mu2>0.1</mu2>
+        <kp>500000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+        <material>Gazebo/FlatBlack</material>
+    </gazebo>
+
+    <gazebo reference="link1_left_link">
+        <mu1>0.1</mu1>
+        <mu2>0.1</mu2>
+        <kp>500000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+        <material>Gazebo/FlatBlack</material>
+    </gazebo>
+
+    <gazebo reference="link1_right_link">
+        <mu1>0.1</mu1>
+        <mu2>0.1</mu2>
+        <kp>500000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+        <material>Gazebo/FlatBlack</material>
+    </gazebo>
+
+    <gazebo reference="joint2_left_link">
+        <mu1>0.1</mu1>
+        <mu2>0.1</mu2>
+        <kp>500000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+        <material>Gazebo/FlatBlack</material>
+    </gazebo>
+
+    <gazebo reference="joint2_right_link">
+        <mu1>0.1</mu1>
+        <mu2>0.1</mu2>
+        <kp>500000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+        <material>Gazebo/FlatBlack</material>
+    </gazebo>
+
+    <gazebo reference="link2_left_link">
+        <mu1>0.1</mu1>
+        <mu2>0.1</mu2>
+        <kp>500000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+        <material>Gazebo/FlatBlack</material>
+    </gazebo>
+
+    <gazebo reference="link2_right_link">
+        <mu1>0.1</mu1>
+        <mu2>0.1</mu2>
+        <kp>500000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+        <material>Gazebo/FlatBlack</material>
+    </gazebo>
+
     <gazebo reference="imu_link">
         <sensor type="imu" name="imu">
         <always_on>true</always_on>

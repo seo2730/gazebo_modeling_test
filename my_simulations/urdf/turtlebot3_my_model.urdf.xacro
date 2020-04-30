@@ -142,6 +142,266 @@
         </inertial>
     </link>
 
+    <!-- Deliver robot joint1-->
+    <joint name="joint1_left_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link = "joint1_left_link"/>
+        <origin xyz="0.11 -0.135 0.04" rpy="-1.57 0 0"/>
+        <axis xyz= "0 0 1"/>
+    </joint>
+
+    <link name = "joint1_left_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.018" radius="0.015"/>
+            </geometry>
+            <material name="dark"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.018" radius="0.015"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value = "0.1"/>
+            <inertia ixx="1.6425e-5" ixy="0" ixz="0"
+                    iyy="1.6425e-5" iyz="0"
+                    izz="1.125e-5"/>
+        </inertial>
+    </link>
+
+    <joint name="joint1_right_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link = "joint1_right_link"/>
+        <origin xyz="0.11 0.135 0.04" rpy="-1.57 0 0"/>
+        <axis xyz= "0 0 1"/>
+    </joint>
+
+    <link name = "joint1_right_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.018" radius="0.015"/>
+            </geometry>
+            <material name="dark"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.018" radius="0.015"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value = "0.1"/>
+            <inertia ixx="1.6425e-5" ixy="0" ixz="0"
+                    iyy="1.6425e-5" iyz="0"
+                    izz="1.125e-5"/>
+        </inertial>
+    </link>
+
+    <!-- Deliver robot link1-->
+    <joint name="link1_left_joint" type="continuous">
+        <parent link="joint1_left_link"/>
+        <child link = "link1_left_link"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz= "0 0 1"/>
+    </joint>
+
+    <link name = "link1_left_link">
+        <visual>
+            <origin xyz="0.05 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.1 0.03 0.03"/>
+            </geometry>
+            <material name="dark"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0.05 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.1 0.03 0.03"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="0.05 0 0"/>
+            <mass value = "0.1"/>
+            <inertia ixx="1.6425e-5" ixy="0" ixz="0"
+                    iyy="1.6425e-5" iyz="0"
+                    izz="1.125e-5"/>
+        </inertial>
+    </link>
+
+    <joint name="link1_right_joint" type="continuous">
+        <parent link="joint1_right_link"/>
+        <child link = "link1_right_link"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz= "0 0 1"/>
+    </joint>
+
+    <link name = "link1_right_link">
+        <visual>
+            <origin xyz="0.05 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.1 0.03 0.03"/>
+            </geometry>
+            <material name="dark"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0.05 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.1 0.03 0.03"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="0.05 0 0"/>
+            <mass value = "0.1"/>
+            <inertia ixx="1.6425e-5" ixy="0" ixz="0"
+                    iyy="1.6425e-5" iyz="0"
+                    izz="1.125e-5"/>
+        </inertial>
+    </link>
+
+    <!-- Deliver robot joint2-->
+    <joint name="joint2_left_joint" type="continuous">
+        <parent link="link1_left_link"/>
+        <child link = "joint2_left_link"/>
+        <origin xyz="0.1 0 0" rpy="0 0 0"/>
+        <axis xyz= "0 0 1"/>
+    </joint>
+
+    <link name = "joint2_left_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.018" radius="0.015"/>
+            </geometry>
+            <material name="dark"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.018" radius="0.015"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value = "0.1"/>
+            <inertia ixx="1.6425e-5" ixy="0" ixz="0"
+                    iyy="1.6425e-5" iyz="0"
+                    izz="1.125e-5"/>
+        </inertial>
+    </link>
+
+    <joint name="joint2_right_joint" type="continuous">
+        <parent link="link1_right_link"/>
+        <child link = "joint2_right_link"/>
+        <origin xyz="0.1 0 0" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name = "joint2_right_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.018" radius="0.015"/>
+            </geometry>
+            <material name="dark"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.018" radius="0.015"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value = "0.1"/>
+            <inertia ixx="1.6425e-5" ixy="0" ixz="0"
+                    iyy="1.6425e-5" iyz="0"
+                    izz="1.125e-5"/>
+        </inertial>
+    </link>
+
+    <!-- Deliver robot link2-->
+    <joint name="link2_left_joint" type="continuous">
+        <parent link="joint2_left_link"/>
+        <child link = "link2_left_link"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz= "0 0 1"/>
+    </joint>
+
+    <link name = "link2_left_link">
+        <visual>
+            <origin xyz="0.05 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.1 0.03 0.03"/>
+            </geometry>
+            <material name="dark"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0.05 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.1 0.03 0.03"/>
+            </geometry> 
+        </collision>
+
+        <inertial>
+            <origin xyz="0.05 0 0"/>
+            <mass value = "0.1"/>
+            <inertia ixx="1.6425e-5" ixy="0" ixz="0"
+                    iyy="1.6425e-5" iyz="0"
+                    izz="1.125e-5"/>
+        </inertial>
+    </link>
+
+    <joint name="link2_right_joint" type="continuous">
+        <parent link="joint2_right_link"/>
+        <child link = "link2_right_link"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz= "0 0 1"/>
+    </joint>
+
+    <link name = "link2_right_link">
+        <visual>
+            <origin xyz="0.05 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.1 0.03 0.03"/>
+            </geometry>
+            <material name="dark"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0.05 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.1 0.03 0.03"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="0.05 0 0"/>
+            <mass value = "0.1"/>
+            <inertia ixx="1.6425e-5" ixy="0" ixz="0"
+                    iyy="1.6425e-5" iyz="0"
+                    izz="1.125e-5"/>
+        </inertial>
+    </link>
+
     <!-- Deliver robot IMU-->
     <joint name="imu_joint" type="fixed">
         <parent link="base_link"/>
