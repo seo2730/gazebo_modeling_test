@@ -3,40 +3,10 @@
     <xacro:arg name="laser_visual"  default="false"/>
     <xacro:arg name="imu_visual"    default="false"/>
 
-   <!-- Init colour -->
-    <material name="black">
-        <color rgba="0.0 0.0 0.0 1.0" />
-    </material>
-    <material name="dark">
-        <color rgba="0.3 0.3 0.3 1.0" />
-    </material>
-    <material name="light_black">
-        <color rgba="0.4 0.4 0.4 1.0" />
-    </material>
-    <material name="blue">
-        <color rgba="0.0 0.0 0.8 1.0" />
-    </material>
-    <material name="green">
-        <color rgba="0.0 0.8 0.0 1.0" />
-    </material>
-    <material name="grey">
-        <color rgba="0.5 0.5 0.5 1.0" />
-    </material>
-    <material name="orange">
-        <color rgba="1.0 0.423529411765 0.0392156862745 1.0" />
-    </material>
-    <material name="brown">
-        <color rgba="0.870588235294 0.811764705882 0.764705882353 1.0" />
-    </material>
-    <material name="red">
-        <color rgba="0.8 0.0 0.0 1.0" />
-    </material>
-    <material name="white">
-        <color rgba="1.0 1.0 1.0 1.0" />
-    </material>
     <gazebo reference="base_link">
         <material>Gazebo/DarkGrey</material>
     </gazebo>
+
     <gazebo reference="wheel_left_link">
         <mu1>0.1</mu1>
         <mu2>0.1</mu2>
@@ -47,6 +17,7 @@
         <fdir1>1 0 0</fdir1>
         <material>Gazebo/FlatBlack</material>
     </gazebo>
+
     <gazebo reference="wheel_right_link">
         <mu1>0.1</mu1>
         <mu2>0.1</mu2>
@@ -57,6 +28,7 @@
         <fdir1>1 0 0</fdir1>
         <material>Gazebo/FlatBlack</material>
     </gazebo>
+    
     <gazebo reference="caster_back_link">
         <mu1>0.1</mu1>
         <mu2>0.1</mu2>
@@ -66,6 +38,7 @@
         <maxVel>1.0</maxVel>
         <material>Gazebo/FlatBlack</material>
     </gazebo>
+
     <gazebo reference="joint1_left_link">
         <mu1>0.1</mu1>
         <mu2>0.1</mu2>
@@ -76,6 +49,7 @@
         <fdir1>1 0 0</fdir1>
         <material>Gazebo/FlatBlack</material>
     </gazebo>
+
     <gazebo reference="joint1_right_link">
         <mu1>0.1</mu1>
         <mu2>0.1</mu2>
@@ -86,6 +60,7 @@
         <fdir1>1 0 0</fdir1>
         <material>Gazebo/FlatBlack</material>
     </gazebo>
+
     <gazebo reference="link1_left_link">
         <mu1>0.1</mu1>
         <mu2>0.1</mu2>
@@ -96,6 +71,7 @@
         <fdir1>1 0 0</fdir1>
         <material>Gazebo/FlatBlack</material>
     </gazebo>
+
     <gazebo reference="link1_right_link">
         <mu1>0.1</mu1>
         <mu2>0.1</mu2>
@@ -106,6 +82,7 @@
         <fdir1>1 0 0</fdir1>
         <material>Gazebo/FlatBlack</material>
     </gazebo>
+
     <gazebo reference="joint2_left_link">
         <mu1>0.1</mu1>
         <mu2>0.1</mu2>
@@ -116,6 +93,7 @@
         <fdir1>1 0 0</fdir1>
         <material>Gazebo/FlatBlack</material>
     </gazebo>
+
     <gazebo reference="joint2_right_link">
         <mu1>0.1</mu1>
         <mu2>0.1</mu2>
@@ -126,6 +104,7 @@
         <fdir1>1 0 0</fdir1>
         <material>Gazebo/FlatBlack</material>
     </gazebo>
+
     <gazebo reference="link2_left_link">
         <mu1>0.1</mu1>
         <mu2>0.1</mu2>
@@ -136,6 +115,7 @@
         <fdir1>1 0 0</fdir1>
         <material>Gazebo/FlatBlack</material>
     </gazebo>
+
     <gazebo reference="link2_right_link">
         <mu1>0.1</mu1>
         <mu2>0.1</mu2>
@@ -146,37 +126,42 @@
         <fdir1>1 0 0</fdir1>
         <material>Gazebo/FlatBlack</material>
     </gazebo>
+
     <gazebo reference="imu_link">
-        <sensor name="imu" type="imu">
-            <always_on>true</always_on>
-            <visualize>false</visualize>
+        <sensor type="imu" name="imu">
+        <always_on>true</always_on>
+        <visualize>$(arg imu_visual)</visualize>
         </sensor>
         <material>Gazebo/FlatBlack</material>
     </gazebo>
+
     <gazebo>
-        <plugin filename="libgazebo_ros_diff_drive.so" name="turtlebot3_my_model_controller">
-            <commandTopic>cmd_vel</commandTopic>
-            <odometryTopic>odom</odometryTopic>
-            <odometryFrame>odom</odometryFrame>
-            <odometrySource>world</odometrySource>
-            <publishOdomTF>true</publishOdomTF>
-            <robotBaseFrame>base_footprint</robotBaseFrame>
-            <publishWheelTF>false</publishWheelTF>
-            <publishTf>true</publishTf>
-            <publishWheelJointState>true</publishWheelJointState>
-            <legacyMode>false</legacyMode>
-            <updateRate>30</updateRate>
-            <leftJoint>wheel_left_joint</leftJoint>
-            <rightJoint>wheel_right_joint</rightJoint>
-            <wheelSeparation>0.287</wheelSeparation>
-            <wheelDiameter>0.066</wheelDiameter>
-            <wheelAcceleration>1</wheelAcceleration>
-            <wheelTorque>10</wheelTorque>
-            <rosDebugLevel>na</rosDebugLevel>
+        <plugin name="turtlebot3_my_model_controller" filename="libgazebo_ros_diff_drive.so">
+        <commandTopic>cmd_vel</commandTopic>
+        <odometryTopic>odom</odometryTopic>
+        <odometryFrame>odom</odometryFrame>
+        <odometrySource>world</odometrySource>
+        <publishOdomTF>true</publishOdomTF>
+        <robotBaseFrame>base_footprint</robotBaseFrame>
+        <publishWheelTF>false</publishWheelTF>
+        <publishTf>true</publishTf>
+        <publishWheelJointState>true</publishWheelJointState>
+        <legacyMode>false</legacyMode>
+        <updateRate>30</updateRate>
+        <leftJoint>wheel_left_joint</leftJoint>
+        <rightJoint>wheel_right_joint</rightJoint>
+        <wheelSeparation>0.287</wheelSeparation>
+        <wheelDiameter>0.066</wheelDiameter>
+        <wheelAcceleration>1</wheelAcceleration>
+        <wheelTorque>10</wheelTorque>
+        <rosDebugLevel>na</rosDebugLevel>
         </plugin>
     </gazebo>
+
+    
+
     <gazebo>
-        <plugin filename="libgazebo_ros_imu.so" name="imu_plugin">
+        <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
             <alwaysOn>true</alwaysOn>
             <bodyName>imu_link</bodyName>
             <frameName>imu_link</frameName>
@@ -203,20 +188,21 @@
             </imu>
         </plugin>
     </gazebo>
+
     <gazebo reference="base_scan">
         <material>Gazebo/FlatBlack</material>
-        <sensor name="lds_lfcd_sensor" type="ray">
+        <sensor type="ray" name="lds_lfcd_sensor">
             <pose>0 0 0 0 0 0</pose>
-            <visualize>false</visualize>
+            <visualize>$(arg laser_visual)</visualize>
             <update_rate>5</update_rate>
             <ray>
                 <scan>
-                    <horizontal>
-                        <samples>360</samples>
-                        <resolution>1</resolution>
-                        <min_angle>0.0</min_angle>
-                        <max_angle>6.28319</max_angle>
-                    </horizontal>
+                <horizontal>
+                    <samples>360</samples>
+                    <resolution>1</resolution>
+                    <min_angle>0.0</min_angle>
+                    <max_angle>6.28319</max_angle>
+                </horizontal>
                 </scan>
                 <range>
                     <min>0.120</min>
@@ -229,17 +215,11 @@
                     <stddev>0.01</stddev>
                 </noise>
             </ray>
-            <plugin filename="libgazebo_ros_laser.so" name="gazebo_ros_lds_lfcd_controller">
+            <plugin name="gazebo_ros_lds_lfcd_controller" filename="libgazebo_ros_laser.so">
                 <topicName>scan</topicName>
                 <frameName>base_scan</frameName>
             </plugin>
         </sensor>
     </gazebo>
 
-    <gazebo>
-        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-            <robotNamespace>/</robotNamespace>
-            <legacyModeNS>true</legacyModeNS>
-        </plugin>
-    </gazebo>
 </robot>

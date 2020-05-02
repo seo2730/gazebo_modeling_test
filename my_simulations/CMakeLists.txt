@@ -8,6 +8,9 @@ find_package(catkin REQUIRED COMPONENTS
   gazebo_ros 
   urdf 
   xacro
+  std_msgs
+  message_generation
+  rospy
 )
 
 find_package(gazebo REQUIRED)

@@ -1,0 +1,7 @@
+<launch>
+    <arg name="model" default="$(find my_simulations)/urdf/turtlebot3_my_model.urdf.xacro" />
+    <arg name="gui" default="True" />
+    <param name="robot_description" textfile="$(arg model)" />
+    <param name="use_gui" value="$(arg gui)"/>
+    <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" />
+</launch>
