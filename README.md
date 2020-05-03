@@ -53,7 +53,20 @@ How to modeling in sdf file(sdf 파일로 모델링하는 법)
          <radius>0.0508</radius>
          <length>0.055</length>
     </cylinder>
-
+    
+### surface : Choose friction(마찰력 정함)
+    
+    <surface>
+     <friction>
+         <ode>
+             <mu>100000.0</mu>
+             <mu2>100000.0</mu2>
+             <fdir1>0 0 0</fdir1>
+             <slip1>0</slip1>
+             <slip2>0</slip2>
+         </ode>
+     </friction>
+    </surface>    
 ### Example : <br>
 
     <collision name="base_collision">
@@ -62,15 +75,48 @@ How to modeling in sdf file(sdf 파일로 모델링하는 법)
                 <box>
                     <size>0.265 0.265 0.1</size>
                 </box>
-            </geometry>
+            </geometry>            
+            <surface>
+                <friction>
+                     <ode>
+                         <mu>100000.0</mu>
+                         <mu2>100000.0</mu2>
+                         <fdir1>0 0 0</fdir1>
+                         <slip1>0</slip1>
+                         <slip2>0</slip2>
+                     </ode>
+                </friction>
+            </surface>
     </collision>
-## visual : Modeling<br>
+## visual : Modeling(stl,dae 파일도 넣을 수 있다)<br>
 
     <visual name="name"> {same as collision} </visual>
+    
+### Example(No stl file)
 
+    <visual name="left_wheel_visual">
+         <pose>0.07 0.11 0.033 -1.57 0 0</pose>
+         <geometry>
+               <cylinder>
+                   <radius>0.033</radius>
+                   <length>0.018</length>
+              </cylinder>
+         </geometry>
+    </visual>
+ 
+### Example(sta\l or dae file)
 
+    <visual name="lidar_sensor_visual">
+        <pose>-0.012 0 0.14 0 0 0</pose>
+        <geometry>
+             <mesh>
+                 <uri>model://{model_file}/meshes/{visual model}.dae</uri>
+                 <scale>0.001 0.001 0.001</scale>
+             </mesh>
+        </geometry>
+    </visual>
 
-
+## sensor : 현재 공부 중(studying)
 
 How to modeling in urdf file(urdf 파일로 모델링하는 법)
 -------------------------------------------------------
