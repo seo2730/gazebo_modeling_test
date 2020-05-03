@@ -1,7 +1,7 @@
 Gazebo Modeling
 ===============
-How to modeling in sdf file(sdf 파일로 모델링하는 법)
----------------------------------------------------
+1.How to modeling in sdf file(sdf 파일로 모델링하는 법)
+-------------------------------------------------------
 ## comment(주석) : comment command(주석처리 명령어)<br>
     
     
@@ -104,7 +104,7 @@ How to modeling in sdf file(sdf 파일로 모델링하는 법)
          </geometry>
     </visual>
  
-### Example(sta\l or dae file)
+### Example(stl or dae file)
 
     <visual name="lidar_sensor_visual">
         <pose>-0.012 0 0.14 0 0 0</pose>
@@ -118,8 +118,8 @@ How to modeling in sdf file(sdf 파일로 모델링하는 법)
 
 ## sensor : 현재 공부 중(studying)
 
-How to modeling in urdf file(urdf 파일로 모델링하는 법)
--------------------------------------------------------
+2.How to modeling in urdf file(urdf 파일로 모델링하는 법)
+---------------------------------------------------------
 
 
 
