@@ -13,7 +13,6 @@ model name : 모델 이름은 폴더내용과 일치해야함 <br>
 link name : Each model link name (모델의 각 링크의 이름)  <br> 
             ``` <link name="any name"> ``` <br>
 inertial : Choose center of mass, inertial, mass(중심 좌표, 관성 모멘트, 질량) <br>
-            
             <inertial> 
                 <pose>0 0 0.06 0 0 0</pose>
                 <inertia>
@@ -33,6 +32,9 @@ collision : Choose collision area(충돌 영역 정하기)<br>
 
 
 
+
+How to modeling in urdf file(urdf 파일로 모델링하는 법)
+-------------------------------------------------------
 
 
 
