@@ -120,6 +120,64 @@ Gazebo Modeling
 
 2.How to modeling in urdf file(urdf 파일로 모델링하는 법)
 ---------------------------------------------------------
+## xml version : same as sdf file(sdf 파일과 똑같음)<br>
+
+## robot name : Choose robot name and write xmlns:xacro="http://ros.org/wiki/xacro"(Don't know reason)<br>
+    
+    <robot name="{Your robot name}" xmlns:xacro="http://ros.org/wiki/xacro">
+    
+## Interworking with another xacro files(다른 xacro 파일 연동하는 법)<br>
+    
+    <xacro:include filename="$(find directory name)/{path}/another file.xacro"/>
+    
+## Joint name : Choose your model link name and type(continuous, revolute, fixed)<br>
+
+    <joint name="base_joint" type="fixed">
+
+### parent link : choose parent link<br>
+### child link : choose child link<br>
+
+## Link name : Choose your model link name<br>
+    
+    <link name="Robot link name" />
+    
+### visual : Modeling(stl,dae 파일도 넣을 수 있는지 확인해야함)<br>
+
+#### origin : Choose raw,pitch,yaw,x,y,z<br> 
+
+    <origin rpy="0 0 0" xyz="0 0 0.0" />
+
+#### geometry : Choose shape(모양 만들기)<br>
+ 
+    <geometry>
+        <box size="0.265 0.265 0.1" />
+        <sphere radius="0.005" />
+        <cylinder length="0.018" radius="0.033" />
+    </geometry>
+    
+#### material : Usually choose color(색깔 정할 때 주로 씀)<br>
+
+    <material name="light_black" />
+    
+#### Example
+
+    <visual>
+         <origin rpy="0 0 0" xyz="0 0 0.0" />
+         <geometry>
+             <box size="0.265 0.265 0.1" />
+         </geometry>
+         <material name="light_black" />
+    </visual>
+    
+### collision : 충돌영역 정하기(visual과 똑같음)
+        
+    <collision>
+       <origin rpy="0 0 0" xyz="0 0 0" />
+       <geometry>
+           <box size="0.265 0.265 0.1" />
+       </geometry>
+    </collision>
+
 
 
 
