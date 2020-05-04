@@ -122,7 +122,7 @@ Gazebo Modeling
 ---------------------------------------------------------
 ## xml version : same as sdf file(sdf 파일과 똑같음)<br>
 
-## robot name : Choose robot name and write xmlns:xacro="http://ros.org/wiki/xacro"(Don't know reason)<br>
+## robot name : Choose robot name and write xmlns:xacro="http://ros.org/wiki/xacro" (Don't know reason)<br>
     
     <robot name="{Your robot name}" xmlns:xacro="http://ros.org/wiki/xacro">
     
@@ -130,12 +130,16 @@ Gazebo Modeling
     
     <xacro:include filename="$(find directory name)/{path}/another file.xacro"/>
     
-## Joint name : Choose your model link name and type(continuous, revolute, fixed)<br>
+## Joint name : Choose your model link name and type<br>
+### type : continuous, revolute, fixed<br>
 
     <joint name="base_joint" type="fixed">
 
 ### parent link : choose parent link<br>
 ### child link : choose child link<br>
+
+    <parent link="base_footprint" />
+    <child link="base_link" />
 
 ## Link name : Choose your model link name<br>
     
