@@ -122,7 +122,8 @@ Gazebo Modeling
 ---------------------------------------------------------
 ## xml version : same as sdf file(sdf 파일과 똑같음)<br>
 
-## robot name : Choose robot name and write xmlns:xacro="http://ros.org/wiki/xacro" (Don't know reason)<br>
+## robot name : Choose robot name<br>
+#### write xmlns:xacro="http://ros.org/wiki/xacro" (Don't know reason)<br>
     
     <robot name="{Your robot name}" xmlns:xacro="http://ros.org/wiki/xacro">
     
@@ -137,6 +138,7 @@ Gazebo Modeling
 
 ### parent link : choose parent link<br>
 ### child link : choose child link<br>
+: 부모 링크 좌표 기준으로 자식 링크 초기 좌표가 정해진다.<br>
 
     <parent link="base_footprint" />
     <child link="base_link" />
@@ -145,7 +147,7 @@ Gazebo Modeling
     
     <link name="Robot link name" />
     
-### visual : Modeling(stl,dae 파일도 넣을 수 있는지 확인해야함)<br>
+### visual : Modeling(stl,dae 파일도 넣을 수 있음)<br>
 
 #### origin : Choose raw,pitch,yaw,x,y,z<br> 
 
@@ -172,8 +174,16 @@ Gazebo Modeling
          </geometry>
          <material name="light_black" />
     </visual>
+
+    <visual>
+         <origin rpy="0 0 0" xyz="0 0 0" />
+         <geometry>
+             <mesh filename="package://turtlebot3_description/meshes/sensors/lds.stl" scale="0.001 0.001 0.001" />
+         </geometry>
+         <material name="dark" />
+    </visual>
     
-### collision : 충돌영역 정하기(visual과 똑같음)
+### collision : Choose collision area 충돌영역 정하기(visual과 똑같음)<br>
         
     <collision>
        <origin rpy="0 0 0" xyz="0 0 0" />
@@ -181,7 +191,70 @@ Gazebo Modeling
            <box size="0.265 0.265 0.1" />
        </geometry>
     </collision>
+    
+### inertial : Choose center of mass, mass, inertia(중심무게, 질량, 관성모멘트)<br>
+        
+    <inertial>
+          <origin xyz="0.05 0 0" />
+          <mass value="0.01" />
+          <inertia ixx="1.6425e-6" ixy="0" ixz="0" iyy="1.6425e-6" iyz="0" izz="1.125e-6" />
+    </inertial>
+    
+### Full Example<br>
+
+    <link name="joint2_right_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <cylinder length="0.018" radius="0.015" />
+            </geometry>
+            <material name="dark" />
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <cylinder length="0.018" radius="0.015" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0 0 0" xyz="0.05 0 0" />
+            <geometry>
+                <box size="0.1 0.03 0.03" />
+            </geometry>
+            <material name="dark" />
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0.05 0 0" />
+            <geometry>
+                <box size="0.1 0.03 0.03" />
+            </geometry>
+        </collision>
+        
+        <inertial>
+            <origin xyz="0.05 0 0" />
+            <mass value="0.01" />
+            <inertia ixx="1.6425e-6" ixy="0" ixz="0" iyy="1.6425e-6" iyz="0" izz="1.125e-6" />
+        </inertial>
+    </link>
 
 
+## transmission : Making a joint moving(Joint 움직이게 해줌)<br>
+
+    <transmission name="trans_{joint name}">
+    
+### type 
+
+     <type>transmission_interface/SimpleTransmission</type>
+     
+### joint : same joint name
+
+    <joint name="joint1_left_joint">{}</joint>
+
+### hardwareInterface : Joint 방식 
+
+    <joint name="joint1_left_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    
 
 
