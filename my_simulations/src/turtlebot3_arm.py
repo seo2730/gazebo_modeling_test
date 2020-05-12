@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# license removed for brevity
 import rospy
 from std_msgs.msg import Float64
 import math
@@ -17,14 +19,7 @@ def getKey():
         termios.tcsetattr(fd, termios.TCSADRAIN, original_attributes)
     return ch
 
-def arm(joint1, joint2, joint3, joint4):
-    pub1 = rospy.Publisher('/joint1_position_controller/command', Float64 ,queue_size=10)
-    pub2 = rospy.Publisher('/joint2_position_controller/command', Float64 ,queue_size=10)
-    pub3 = rospy.Publisher('/joint3_position_controller/command', Float64 ,queue_size=10)
-    pub4 = rospy.Publisher('/joint4_position_controller/command', Float64 ,queue_size=10)
-  
-    rate = rospy.Rate(50) # 50hz 
-        
+def arm(joint1, joint2, joint3, joint4):   
     position1 = joint1
     position2 = joint2
     position3 = joint3
@@ -37,9 +32,18 @@ def arm(joint1, joint2, joint3, joint4):
     rate.sleep()
         
 
-if __name__== '__main__':
+if __name__== '__main__': 
+    rospy.init_node('turtlebot3_arm')
+
+    pub1 = rospy.Publisher('/joint1_position_controller/command', Float64 ,queue_size=10)
+    pub2 = rospy.Publisher('/joint2_position_controller/command', Float64 ,queue_size=10)
+    pub3 = rospy.Publisher('/joint3_position_controller/command', Float64 ,queue_size=10)
+    pub4 = rospy.Publisher('/joint4_position_controller/command', Float64 ,queue_size=10)
+
+    rate = rospy.Rate(50) # 50hz 
+
     try:
-        rospy.init_node('turtlebot3_arm')
+        
         while(1):
             key = getKey()
             if key == 'z':
@@ -49,4 +53,9 @@ if __name__== '__main__':
                 arm(0.0,0.0,0.0,0.0)
 
     except rospy.ROSInterruptException:
-        pass
+        rospy.loginfo("Arm deactivated.")
+    finally:
+        arm(0.0,0.0,0.0,0.0)
+
+    if ox.name != 'nt':
+        termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
