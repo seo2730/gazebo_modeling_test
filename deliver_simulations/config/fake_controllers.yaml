@@ -1,7 +1,0 @@
-controller_list:
-  - name: fake_arm_controller
-    joints:
-      - joint1_left_joint
-      - joint2_left_joint
-      - joint1_right_joint
-      - joint2_right_joint
