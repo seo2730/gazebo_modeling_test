@@ -39,12 +39,12 @@ if __name__== '__main__':
     pub2 = rospy.Publisher('/joint2_position_controller/command', Float64 ,queue_size=10)
     pub3 = rospy.Publisher('/joint3_position_controller/command', Float64 ,queue_size=10)
     pub4 = rospy.Publisher('/joint4_position_controller/command', Float64 ,queue_size=10)
-
+    
     rate = rospy.Rate(50) # 50hz 
 
     try:
         
-        while(1):
+        while not rospy.is_shutdown():
             key = getKey()
             if key == 'z':
                 arm(-0.9,-0.9,0.9,0.9)
